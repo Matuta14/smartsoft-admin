@@ -1,7 +1,6 @@
-import React, { JSX, useContext, useEffect, useState } from 'react';
+import { JSX, useContext, useEffect, useState } from 'react';
 import { RegisterStyled } from './register.styled.ts';
 
-//TODO: fix this ugly imports
 import { useForm } from 'react-hook-form';
 import { registerUser } from '../../api/requests.tsx';
 import { registerType } from '../../api/types.ts';

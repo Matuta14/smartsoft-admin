@@ -1,4 +1,3 @@
-//TODO: fix this ugly imports
 import { getCountries } from '../../api/requests.tsx';
 import { useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';

@@ -1,6 +1,5 @@
 import { AddWordBox, CaptionsStyled, TableBox } from './captions.styled';
 
-//TODO: fix this ugly imports
 import { useForm } from 'react-hook-form';
 import {
   addWord,
@@ -32,7 +31,6 @@ export const CaptionsPage = () => {
 
   const [isDeleteOpen, setDeleteOpen] = useState(false);
   const [selectedWord, setSelectedWord] = useState<wordResponse | null>(null);
-  // TODO: change all the requests with userQuery
   const { data, isLoading, refetch } = useQuery({
     queryKey: ['words'],
     queryFn: getAllWords,
@@ -105,7 +103,6 @@ export const CaptionsPage = () => {
     <ContentLayoutStyled>
       <CaptionsStyled>
         <AddWordBox>
-          {/* TODO:check on responsives */}
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="inputs">
               <Input
