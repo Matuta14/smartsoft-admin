@@ -10,7 +10,7 @@ export const TablePagination = ({
   return (
     <TablePaginationStyled>
       <Button
-        onClick={() => setCurrentPage((p: number) => Math.max(p - 1, 1))}
+        onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))}
         text={'Prev'}
       />
 
@@ -18,9 +18,7 @@ export const TablePagination = ({
         Page {currentPage} of {totalPages}
       </span>
       <Button
-        onClick={() =>
-          setCurrentPage((p: number) => Math.min(p + 1, totalPages))
-        }
+        onClick={() => setCurrentPage(Math.min(currentPage + 1, totalPages))}
         text="Next"
       />
     </TablePaginationStyled>

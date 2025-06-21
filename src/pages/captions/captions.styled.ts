@@ -50,6 +50,7 @@ export const EditModalStyled = styled.div`
   form {
     display: flex;
     flex-direction: column;
+    width: 100%;
     button {
       margin-top: 1.25rem;
     }

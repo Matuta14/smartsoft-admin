@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ISelectOption, ISelectProps } from './types';
 import { SelectBox, SelectMenu, SelectStyled } from './select.styled';
+import svgUrl from '../../assets/dropdownChevron.svg';
 
 export const Select = ({
   options,
@@ -23,7 +24,7 @@ export const Select = ({
   };
 
   return (
-    <SelectBox className={className}>
+    <SelectBox className={className} isOpen={isOpenSelect}>
       <label className="select-label">{label}</label>
       <SelectStyled
         value={selected}
@@ -32,6 +33,7 @@ export const Select = ({
         placeholder="Select an option"
         readOnly
       />
+      <img className="icon" src={svgUrl} />
       {isOpenSelect && (
         <SelectMenu>
           {options.map((option) => (

@@ -14,7 +14,7 @@ export const LoginStyled = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.875rem;
+    font-size: 20px;
   }
   .login-form {
     display: flex;

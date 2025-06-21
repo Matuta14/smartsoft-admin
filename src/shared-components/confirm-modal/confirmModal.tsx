@@ -16,12 +16,17 @@ export const ConfirmModal = ({
         <div className="buttons-box">
           <Button
             text="Yes"
+            buttonType="red"
             onClick={() => {
               onSubmit();
               setIsOpen(false);
             }}
           />
-          <Button text="No" onClick={() => setIsOpen(false)} />
+          <Button
+            text="No"
+            buttonType="green"
+            onClick={() => setIsOpen(false)}
+          />
         </div>
       </ConfirmModalStyled>
     </Modal>

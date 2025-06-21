@@ -23,5 +23,6 @@ export const ModalBody = styled.div`
   .close-icon {
     display: flex;
     justify-self: end;
+    cursor: pointer;
   }
 `;

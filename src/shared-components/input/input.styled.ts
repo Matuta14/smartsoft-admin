@@ -5,9 +5,9 @@ export const InputStyled = styled.input`
   background-color: transparent;
   border: none;
   padding: 1.25rem 0.3125rem;
-  color: ${Theme.colors.MAIN_FONT_COLOR};
+  color: ${Theme.colors.MAIN_BLUE};
   border-bottom: 0.0625rem solid ${Theme.colors.MAIN_BLUE};
-  font-size: 1.25rem;
+  font-size: 12px;
   &:focus-visible {
     outline: none;
   }

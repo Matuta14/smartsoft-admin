@@ -15,10 +15,11 @@ export const TableStyled = styled.div`
 export const TableHeader = styled.div`
   display: flex;
   width: 100%;
-  background-color: ${Theme.colors.SEOCNDARY_BG_COLOR};
+  background-color: ${Theme.colors.MAIN_BLUE};
+  color: ${Theme.colors.SECONDARY_BLUE};
   span {
     color: ${Theme.colors.CARD_BG};
-    font-size: 1.25rem;
+    text-transform: uppercase;
   }
 `;
 
@@ -26,14 +27,25 @@ export const TableRow = styled.div`
   display: flex;
   cursor: pointer;
   border-bottom: 0.0625rem solid ${Theme.colors.SEOCNDARY_BG_COLOR};
+  height: 50px;
+  &:nth-child(even) {
+    background-color: #e1e2e4;
+  }
   &:hover {
     background-color: ${Theme.colors.TABLE_ROW_HOVER};
+    span {
+      color: ${Theme.colors.SECONDARY_FONT_COLOR};
+    }
   }
 `;
 export const RowBtnBox = styled.div`
   display: flex;
   justify-content: end;
   gap: 0.625rem;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
 `;
 export const TableBody = styled.div`
   display: flex;
@@ -45,12 +57,14 @@ export const TableCell = styled.span<{ $flex?: number; $align?: string }>`
   padding: 0.625rem;
   width: 6.25rem;
   flex: ${({ $flex }) => ($flex ? $flex : 'auto')};
-  color: ${Theme.colors.MAIN_FONT_COLOR};
-  font-size: 1.125rem;
+  color: black;
+  font-size: 12px;
   text-align: ${({ $align }) => $align};
-
+  align-items: center;
+  display: flex;
+  justify-content: ${({ $align }) => ($align === 'right' ? 'end' : 'start')};
   &.header-cell {
-    color: ${Theme.colors.MAIN_FONT_COLOR};
+    color: ${Theme.colors.SECONDARY_FONT_COLOR};
   }
   .hide-overflow {
     text-overflow: ellipsis;
@@ -75,6 +89,12 @@ export const TablePaginationStyled = styled.div`
   align-items: center;
   gap: 1.25rem;
   padding: 1rem 0;
+  color: ${Theme.colors.MAIN_FONT_COLOR};
+  color: 12px;
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
 `;
 
 export const MobileTableStyled = styled.div`
@@ -113,6 +133,7 @@ export const MobileTableRow = styled.div`
     color: ${Theme.colors.SECONDARY_FONT_COLOR};
   }
   .value {
-    color: ${Theme.colors.MAIN_FONT_COLOR};
+    color: ${Theme.colors.MAIN_BLUE};
+    text-align: end;
   }
 `;

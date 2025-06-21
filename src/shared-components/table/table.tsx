@@ -114,6 +114,12 @@ export const Table = function <T>({
               </MobileTableRow>
             );
           })}
+          {(editFn || deleteFn) && (
+            <RowBtnBox>
+              {editFn && <Button text="edit" onClick={() => editFn(r)} />}
+              {deleteFn && <Button text="delete" onClick={() => deleteFn(r)} />}
+            </RowBtnBox>
+          )}
         </MobileBlock>
       ))}
     </MobileTableStyled>

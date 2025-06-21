@@ -20,7 +20,7 @@ export const ContentLayoutStyled = styled.div`
   flex-direction: column;
   margin: 0 2rem;
   background-color: ${Theme.colors.CARD_BG};
-  padding: 1.875rem;
+  padding: 0.875rem;
   height: 100%;
   width: calc(100% - 2rem);
   border-radius: ${Theme.effects.BORDER_RADIUS};

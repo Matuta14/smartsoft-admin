@@ -13,7 +13,7 @@ export interface IColumn<T> {
 }
 
 export interface IPagination {
-  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  setCurrentPage: Function;
   totalPages: number;
   currentPage: number;
 }

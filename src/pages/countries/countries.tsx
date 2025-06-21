@@ -8,7 +8,7 @@ import { ContentLayoutStyled } from '../../shared-components/styled.ts';
 import { Checkbox } from '../../shared-components/checkbox.tsx/checkbox.tsx';
 import { Select } from '../../shared-components/select/select.tsx';
 import { TablePagination } from '../../shared-components/table/tablePagination.tsx';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import Loader from '../../shared-components/loader/loader.tsx';
 
 export const CountriesPage = () => {
@@ -17,13 +17,13 @@ export const CountriesPage = () => {
     queryFn: getCountries,
   });
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 15;
-  const totalPages = Math.ceil(data?.data?.length / pageSize);
-  const [showOnlyIndependent, setShowOnlyIndependent] = useState(false);
-  const [selectedCurrency, setSelectedCurrency] = useState('');
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const navigate = useNavigate();
+  const showOnlyIndependent = searchParams.get('independent') === 'true';
+  const selectedCurrency = searchParams.get('currency') || '';
+  const currentPage = parseInt(searchParams.get('page') || '1', 10);
+  const pageSize = 15;
 
   const filteredCountries = data?.data?.filter((country: any) => {
     if (showOnlyIndependent && country.independent !== true) return false;
@@ -35,15 +35,34 @@ export const CountriesPage = () => {
 
     return true;
   });
+
   const currentCountries = filteredCountries?.slice(
     (currentPage - 1) * pageSize,
     currentPage * pageSize,
   );
+  const totalPages = Math.ceil(filteredCountries?.length / pageSize);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [showOnlyIndependent, selectedCurrency]);
+  const handleIndependentChange = (val: boolean) => {
+    const newParams = new URLSearchParams(searchParams);
+    if (val) newParams.set('independent', 'true');
+    else newParams.delete('independent');
+    newParams.set('page', '1'); // reset to page 1
+    setSearchParams(newParams);
+  };
 
+  const handleCurrencyChange = (currency: string) => {
+    const newParams = new URLSearchParams(searchParams);
+    if (currency) newParams.set('currency', currency);
+    else newParams.delete('currency');
+    newParams.set('page', '1');
+    setSearchParams(newParams);
+  };
+
+  const handlePageChange = (page: number) => {
+    const newParams = new URLSearchParams(searchParams);
+    newParams.set('page', page.toString());
+    setSearchParams(newParams);
+  };
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -56,13 +75,13 @@ export const CountriesPage = () => {
         <FiltersBox>
           <Checkbox
             checked={showOnlyIndependent}
-            onChange={setShowOnlyIndependent}
+            onChange={handleIndependentChange}
             label={'Independent'}
           />
 
           <Select
             value={selectedCurrency}
-            onChange={(e: any) => setSelectedCurrency(e)}
+            onChange={(e: any) => handleCurrencyChange(e)}
             options={CurrencyOptions}
           />
         </FiltersBox>
@@ -75,7 +94,7 @@ export const CountriesPage = () => {
               <Table columns={CountriesColumns} data={currentCountries} />
               <TablePagination
                 currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
+                setCurrentPage={handlePageChange}
                 totalPages={totalPages}
               />
             </>
