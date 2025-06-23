@@ -20,6 +20,6 @@ export const Theme = {
     CARD_BOX_SHADOW: '0rem 0.25rem 0.75rem  #00000040',
     BORDER_RADIUS: '2px',
     BORDER: '0.0625rem solid #00000040',
-    BORDER_COLORED: '0.0625rem solid #00000040',
+    BORDER_COLORED: '0.0625rem solid #C2CAD8',
   },
 };

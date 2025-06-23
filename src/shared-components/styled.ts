@@ -13,6 +13,7 @@ export const MainLayoutStyled = styled.div.withConfig({
   flex-direction: column;
   gap: 1.25rem;
   min-height: 100%;
+  height: 100%;
 `;
 
 export const ContentLayoutStyled = styled.div`
@@ -24,6 +25,7 @@ export const ContentLayoutStyled = styled.div`
   height: 100%;
   width: calc(100% - 2rem);
   border-radius: ${Theme.effects.BORDER_RADIUS};
+  overflow: auto;
 `;
 
 export const AuthLayoutStyled = styled.div`

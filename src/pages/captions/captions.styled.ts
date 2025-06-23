@@ -36,6 +36,9 @@ export const TableBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  .loader-box {
+    margin-top: 30%;
+  }
 `;
 
 export const EditModalStyled = styled.div`

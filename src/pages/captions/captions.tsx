@@ -121,7 +121,9 @@ export const CaptionsPage = () => {
 
         <TableBox>
           {isLoading ? (
-            <Loader />
+            <div className="loader-box">
+              <Loader />
+            </div>
           ) : (
             <Table
               columns={WordColumns}

@@ -28,7 +28,7 @@ export const ButtonStyled = styled.button.withConfig({
   cursor: pointer;
   height: 2.1875rem;
   min-height: 30px;
-  // min-width: 160px;
+  min-width: 80px;
   &:hover {
     background-color: ${({ buttonType }) =>
       buttonType === 'primary'

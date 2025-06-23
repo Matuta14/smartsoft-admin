@@ -19,7 +19,7 @@ export const HeaderStyled = styled.div`
     text-decoration: none;
     color: ${Theme.colors.FONT_COLOR_LIGHT};
     cursor: pointer;
-    font-size: 12px;
+    font-size: 16px;
     &:hover {
       color: ${Theme.colors.SECONDARY_FONT_COLOR};
     }
@@ -29,6 +29,9 @@ export const HeaderStyled = styled.div`
     gap: 0.625rem;
     align-items: center;
     font-size: 12px;
+    .active {
+      color: ${Theme.colors.BUTTON_BG};
+    }
   }
 
   .right {

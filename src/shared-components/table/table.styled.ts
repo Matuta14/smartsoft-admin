@@ -26,7 +26,7 @@ export const TableHeader = styled.div`
 export const TableRow = styled.div`
   display: flex;
   cursor: pointer;
-  border-bottom: 0.0625rem solid ${Theme.colors.SEOCNDARY_BG_COLOR};
+  border-bottom: 0.0625rem solid #c2cad8;
   height: 50px;
   &:nth-child(even) {
     background-color: #e1e2e4;
@@ -63,8 +63,10 @@ export const TableCell = styled.span<{ $flex?: number; $align?: string }>`
   align-items: center;
   display: flex;
   justify-content: ${({ $align }) => ($align === 'right' ? 'end' : 'start')};
+  border: 1px solid #c2cad8;
   &.header-cell {
     color: ${Theme.colors.SECONDARY_FONT_COLOR};
+    border: none;
   }
   .hide-overflow {
     text-overflow: ellipsis;
